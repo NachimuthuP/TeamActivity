@@ -1,3 +1,12 @@
 <resources>
-    <string name="app_name">TeamActivity</string>
+    <string name="app_name" translatable="false">TeamActivity</string>
+    <string name="tcsimage1">tcsimage</string>
+    <string name="tcsloginimage">tcsloginimage</string>
+    <string name="emp_id">Emp ID</string>
+    <string name="password">Password</string>
+    <string name="sign_in">Sign In</string>
+    <string name="wowimageoutside">wowimageoutside</string>
+    <string name="wowimageinside">wowimageinside</string>
+    <string name="team_management_application">Team Management Application</string>
+    <string name="menu">menu</string>
 </resources>
