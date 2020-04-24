@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <ImageView
         android:id="@+id/tcsimageinside"
         android:layout_width="0dp"
@@ -57,19 +58,6 @@
         app:layout_constraintVertical_bias="0.322"
         tools:layout_editor_absoluteY="238dp" />
 
-    <ImageButton
-        android:id="@+id/menu"
-        android:layout_width="52dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginLeft="24dp"
-        android:layout_marginTop="24dp"
-        android:scaleType="centerCrop"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/dwwn"
-        android:contentDescription="@string/menu" />
-
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/Create"
         android:layout_width="56dp"
@@ -87,4 +75,24 @@
         app:maxImageSize="50dp"
         app:srcCompat="@drawable/plusicon" />
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
+        app:layout_constraintBottom_toTopOf="@+id/Teammanagementtext"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:title="Team Manager"
+        app:navigationIcon="@drawable/ic_menu_black_24dp"
+        />
+
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
