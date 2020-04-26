@@ -1,18 +1,20 @@
-package com.nachi.teamactivity
+package com.nachi.teamactivity.controller
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
-import android.widget.Toolbar
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.nachi.teamactivity.R
 import kotlinx.android.synthetic.main.firstscreen.*
+import kotlinx.android.synthetic.main.nav_drawer.*
 
-class firstscreen1 : LogActivity(), NavigationView.OnNavigationItemSelectedListener {
+open class firstscreen1 : LogActivity(), NavigationView.OnNavigationItemSelectedListener {
     lateinit var navView: NavigationView
     lateinit var drawerLayout: DrawerLayout
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -37,27 +39,40 @@ class firstscreen1 : LogActivity(), NavigationView.OnNavigationItemSelectedListe
     }
         override fun onOptionsItemSelected(item: MenuItem): Boolean {
             return when (item.itemId) {
-                R.id.action_settings -> {
+                R.id.searchemployee -> {
                     Toast.makeText(applicationContext, "click on setting", Toast.LENGTH_LONG).show()
                     true
                 }
-                R.id.action_share -> {
+                R.id.reports -> {
                     Toast.makeText(applicationContext, "click on share", Toast.LENGTH_LONG).show()
                     return true
                 }
-                R.id.action_exit -> {
-                    Toast.makeText(applicationContext, "click on exit", Toast.LENGTH_LONG).show()
+                R.id.appdescription -> {
+//                    Toast.makeText(applicationContext, "click on exit", Toast.LENGTH_LONG).show()
+                    showappdescription()
                     return true
+                }
+                    R.id.logout -> {
+                        val logoutpage = Intent(this, MainActivity::class.java)
+                        startActivity(logoutpage)
+                        return true
+
                 }
                 else -> super.onOptionsItemSelected(item)
             }
+
 }
+    private fun showappdescription()
+    {
+     appdesc.visibility= View.VISIBLE
+
+    }
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_message -> {
+            R.id.createemployee -> {
                 Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
             }
-            R.id.nav_chat -> {
+            R.id.updateemployee-> {
                 Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
             }
             R.id.nav_share -> {

@@ -8,6 +8,9 @@
     <string name="wowimageoutside">wowimageoutside</string>
     <string name="wowimageinside">wowimageinside</string>
     <string name="team_management_application">Team Management Application</string>
+    <string name="appdescription">This application is to manage the TCS-WoW employees. With this app, we can manage the total employees, onsite and offshore details, designations, OFL ratio, project wise resource details</string>
+    <string name="Register">Register</string>
+    <string name="registerback">Back</string>
     <string name="menu">menu</string>
     <string name="action_settings">Search An Employee</string>
     <string name="action_share">Reports</string>
