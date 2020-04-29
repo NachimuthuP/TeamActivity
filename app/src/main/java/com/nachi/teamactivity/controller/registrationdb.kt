@@ -7,14 +7,10 @@ import android.database.sqlite.SQLiteOpenHelper
 
 
 class Registrationdb(context: Context):SQLiteOpenHelper(context, dbname, factory, version){
-
-
     override fun onCreate(db: SQLiteDatabase?) {
         db?.execSQL("create table registeruser(id integer primary key autoincrement,"+"name varchar(20),password varchar(20))")
-        print("cretion")
     }
     fun insertregisterdata(name: String, password: String){
-        print("ïnsertion")
         val db: SQLiteDatabase=writableDatabase
         val values:ContentValues= ContentValues()
         values.put("name", name)

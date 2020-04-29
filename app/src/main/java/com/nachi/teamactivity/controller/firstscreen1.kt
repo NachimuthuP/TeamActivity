@@ -23,57 +23,64 @@ open class firstscreen1 : LogActivity(), NavigationView.OnNavigationItemSelected
         setSupportActionBar(toolbar)
         drawerLayout = findViewById(R.id.drawer_layout)
         navView = findViewById(R.id.nav_view)
-        val drawerToggle:ActionBarDrawerToggle=object : ActionBarDrawerToggle(
-            this,drawerLayout,toolbar,(R.string.open),(R.string.close)
-        ){
+        val drawerToggle: ActionBarDrawerToggle = object : ActionBarDrawerToggle(
+            this, drawerLayout, toolbar, (R.string.open), (R.string.close)
+        ) {
         }
-        drawerToggle.isDrawerIndicatorEnabled=true
+        drawerToggle.isDrawerIndicatorEnabled = true
         drawerLayout.addDrawerListener(drawerToggle)
         drawerToggle.syncState()
         navView.setNavigationItemSelectedListener(this)
     }
+
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu, menu)
         return true
     }
-        override fun onOptionsItemSelected(item: MenuItem): Boolean {
-            return when (item.itemId) {
-                R.id.searchemployee -> {
-                    Toast.makeText(applicationContext, "click on setting", Toast.LENGTH_LONG).show()
-                    true
-                }
-                R.id.reports -> {
-                    Toast.makeText(applicationContext, "click on share", Toast.LENGTH_LONG).show()
-                    return true
-                }
-                R.id.appdescription -> {
-//                    Toast.makeText(applicationContext, "click on exit", Toast.LENGTH_LONG).show()
-                    showappdescription()
-                    return true
-                }
-                    R.id.logout -> {
-                        val logoutpage = Intent(this, MainActivity::class.java)
-                        startActivity(logoutpage)
-                        return true
 
-                }
-                else -> super.onOptionsItemSelected(item)
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        return when (item.itemId) {
+            R.id.searchemployee -> {
+                Toast.makeText(applicationContext, "click on setting", Toast.LENGTH_LONG).show()
+                true
             }
+            R.id.reports -> {
+                Toast.makeText(applicationContext, "click on share", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.appdescription -> {
+//                    Toast.makeText(applicationContext, "click on exit", Toast.LENGTH_LONG).show()
+                showappdescription()
+                return true
+            }
+            R.id.logout -> {
+                val logoutpage = Intent(this, MainActivity::class.java)
+                startActivity(logoutpage)
+                return true
 
-}
-    private fun showappdescription()
-    {
-     appdesc.visibility= View.VISIBLE
+            }
+            else -> super.onOptionsItemSelected(item)
+        }
 
     }
+
+    private fun showappdescription() {
+        appdesc.visibility = View.VISIBLE
+
+    }
+
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.createemployee -> {
-                Toast.makeText(this, "Profile clicked", Toast.LENGTH_SHORT).show()
+                val createemp = Intent(this, Createemployee::class.java)
+                startActivity(createemp)
+                return true
             }
-            R.id.updateemployee-> {
-                Toast.makeText(this, "Messages clicked", Toast.LENGTH_SHORT).show()
+            R.id.updateemployee -> {
+                val updateeemp = Intent(this, Updateemployee::class.java)
+                startActivity(updateeemp)
+                return true
             }
             R.id.nav_share -> {
                 Toast.makeText(this, "Friends clicked", Toast.LENGTH_SHORT).show()
@@ -88,12 +95,13 @@ open class firstscreen1 : LogActivity(), NavigationView.OnNavigationItemSelected
     }
 
     override fun onBackPressed() {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)) {
-                drawerLayout.closeDrawer(GravityCompat.START)
-    }else{
-        super.onBackPressed()
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START)
+        } else {
+            super.onBackPressed()
+        }
     }
-}
+
 }
 
 

@@ -18,10 +18,16 @@ public class Registration : LogActivity() {
         setContentView(R.layout.registration)
         handler = Registrationdb(this)
         registrationscreen.setOnClickListener() {
-            handler.insertregisterdata(name.text.toString(), password.text.toString())
-            val startpage = Intent(this, MainActivity::class.java)
-            startActivity(startpage)
-
+            if(name.text.isBlank()||password.text.isBlank()){
+                    Toast.makeText(applicationContext,
+                            "Please enter Emp ID & Password",
+                            Toast.LENGTH_LONG
+                        ).show()
+                }else {
+                handler.insertregisterdata(name.text.toString(), password.text.toString())
+                val startpage = Intent(this, MainActivity::class.java)
+                startActivity(startpage)
+            }
         }
         deleteuser.setOnClickListener(){
             if(handler.updateegisterdata(name.text.toString(),password.text.toString())) {

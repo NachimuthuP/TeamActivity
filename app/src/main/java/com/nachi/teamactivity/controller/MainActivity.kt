@@ -15,13 +15,19 @@ public class MainActivity : LogActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        registration.setOnClickListener{
-            val startpage1 = Intent(this, Registration::class.java)
-            startActivity(startpage1)
+        registration.setOnClickListener {
+                val startpage1 = Intent(this, Registration::class.java)
+                startActivity(startpage1)
         }
                 handler3 = Registrationdb(this)
                 siginin.setOnClickListener() {
-                    if(handler3.registeruserpresent(
+                    if (loginempid.text.isBlank() || loginpassword.text.isBlank()) {
+                        Toast.makeText(
+                            applicationContext,
+                            "Please enter Emp ID & Password",
+                            Toast.LENGTH_LONG
+                        ).show()}
+                        else if(handler3.registeruserpresent(
                         loginempid.text.toString(),
                         loginpassword.text.toString()
                     )) {
